@@ -1,0 +1,68 @@
+<div>
+    @if (action == 'list') {
+
+    <a (click)="create()">
+        <div class=" md:m-10 m-5 md:w-auto items-center bg-white border border-gray-800 p-4 rounded-lg">
+            <img src="../../../../../../icone/plus.webp" alt="" class=" table m-auto w-18">
+        </div>
+    </a>
+    @for (item of member.List(); track $index) {
+    <div id="d1" class="md:m-10 m-5 md:w-auto bg-white border border-gray-800 shadow-sm rounded-lg p-2">
+        <div class="flex flex-col items-center flex-row w-full">
+            <img class="md:h-96 md:h-auto md:w-48 w-24 h-auto rounded-2xl shadow-lg " src="../../../../icone/{{item?.img}}" alt="">
+            <div class="flex flex-col justify-between p-4 leading-normal">
+                <h5 class="mb-2 md:text-2xl text-md font-bold tracking-tight text-gray-900">{{item?.wealth}} :
+                    {{item?.FirstName}} {{item.LastName}}</h5>
+                <p class="mb-3 font-normal text-gray-700">{{item?.title}}</p>
+            </div>
+        </div>
+        <div class="flex justify-between m-5">
+            <button (click)="edit(item)" class="ml-8 w-10">
+                <img src="../../../../../../icone/edit.png" alt="">
+            </button>
+            <button class="mr-8 w-10">
+                <img (click)="remove(item); isModel = true" src="../../../../../../icone/remove.png" alt="">
+            </button>
+        </div>
+    </div>
+    }
+    }
+    @else {
+    <app-editor-users [current]="this.selected" [action]="action" (onOk)="ok($event)"
+        (onCancel)="cancel()"></app-editor-users>
+    }
+
+    @if (isModel) {
+    <div #menuRef tabindex="-1"
+        class="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <div class="relative bg-gray-100 rounded-lg shadow-2xl">
+                <button (click)="isDelete = false ; isModel = false;" type="button"
+                    class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="p-4 md:p-5 text-center">
+                    <svg class="mx-auto mb-4 text-gray-800 w-12 h-12" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <h3 class="mb-5 text-lg font-normal text-gray-800">آیا از خذف {{removeUser}} اطمینان کامل دارد
+                        </h3>
+                    <button (click)="isDelete = true; isModel = false;" type="button"
+                        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                        حذف
+                    </button>
+                    <button (click)="isDelete = false ; isModel = false;" type="button"
+                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-gray-100 rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">انصراف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

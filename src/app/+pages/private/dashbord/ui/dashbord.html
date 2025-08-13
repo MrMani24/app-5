@@ -1,0 +1,17 @@
+<!-- <p>{{personData?.title}}</p> -->
+<div class="md:m-10 m-5 md:w-auto bg-white border border-gray-800 shadow-sm flex flex-col-reverse rounded-xl">
+    <ul class="m-10">
+        <li class="p-2 md:text-xl text-md proportional-nums">سمت :{{this.getObject(this.action.number).wealth}} </li>
+        <li class="p-2 md:text-xl text-md proportional-nums">بیوگرافی : {{this.getObject(this.action.number).title}}</li>
+        <li class="p-2 md:text-xl text-md proportional-nums">نام کاربری : {{this.getObject(this.action.number).userName}} </li>
+    </ul>
+    <div class="flex flex-col items-center flex-row w-full">
+        <img class="md:h-96 md:h-auto md:w-48 w-24 h-24 m-5 "
+            src="../../../../../../icone/{{this.getObject(this.action.number).img}}" alt="">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+            <h5 class="mb-2 md:text-2xl text-xl font-bold tracking-tight text-gray-900 md:mr-10 mr-5">
+               {{this.getObject(this.action.number).FirstName}}  {{this.getObject(this.action.number).LastName}} </h5>
+        </div>
+    </div>
+    <p class="text-center md:text-2xl text-xl p-2">پروفایل من</p>
+</div>
