@@ -26,31 +26,6 @@ export class EditorUsers implements OnChanges {
   @Output() onOk = new EventEmitter<person>()
   @Input() action: string | undefined
   ok() {
-    switch (this.data.wealth) {
-      case 'رئیس اتحادیه':
-        this.data.wealth = 'رئیس اتحادیه'
-        break;
-      case 'نایب رئیس':
-        this.data.wealth = 'نایب رئیس'
-        break;
-      case 'خزانه دار':
-        this.data.wealth = 'خزانه دار'
-        break;
-      case 'مدیر اجرایی':
-        this.data.wealth = 'مدیر اجرایی'
-        break;
-      case 'رئیس کمیسیون رسیدگی به شکایات':
-        this.data.wealth = 'رئیس کمیسیون رسیدگی به شکایات'
-        break;
-      case 'کارمند اتحادیه':
-        this.data.wealth = 'کارمند اتحادیه'
-        break;
-      case 'رئیس کمیسیون آموزش':
-        this.data.wealth = '>رئیس کمیسیون آموزش'
-        break;
-      default:
-        break;
-    }
     this.onOk.emit(this.data);
   }
   click() {
@@ -58,14 +33,14 @@ export class EditorUsers implements OnChanges {
   }
 
   data: person = {
-    id: 0 ,
-    FirstName: '',
-    LastName: '',
+    id: '',
+    firstname: '',
+    lastname: '',
     userName: '',
     password: '',
     title: '',
     wealth: '...',
-    img: 'person.webp',
+    profileImg:'',
   }
   @ViewChild('menuRef') menuRef!: ElementRef;
 

@@ -2,13 +2,13 @@
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
             <label for="FirstName" class="block mb-2 text-sm font-medium text-gray-900 ">نام </label>
-            <input name="FirstName" [(ngModel)]="data.FirstName" type="text" id="first_name"
+            <input name="FirstName" [(ngModel)]="data.firstname" type="text" id="first_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="" required />
         </div>
         <div>
             <label for="LastName" class="block mb-2 text-sm font-medium text-gray-900 ">نام خانوادگی</label>
-            <input name="LastName" [(ngModel)]="data.LastName" type="text" id="last_name"
+            <input name="LastName" [(ngModel)]="data.lastname" type="text" id="last_name"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="" required />
         </div>
@@ -54,6 +54,10 @@
                             <a (click)="this.data.wealth = 'کارمند اتحادیه'; this.isclick=false "
                                 class="block px-4 py-2 hover:bg-gray-100">کارمند اتحادیه</a>
                         </li>
+                        <li>
+                            <a (click)="this.data.wealth = 'عضو'; this.isclick=false "
+                                class="block px-4 py-2 hover:bg-gray-100">عضو</a>
+                        </li>
                     </ul>
                 </div>
                 }
@@ -65,6 +69,7 @@
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="" required />
         </div>
+        @if (this.action != "edit") {
         <div>
             <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">نام کاربری</label>
             <input name="username" [(ngModel)]="data.userName" type="username" id="username"
@@ -77,6 +82,7 @@
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 placeholder="" required />
         </div>
+        }
     </div>
     <button id="b1" (click)="ok()" type="submit"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">تایید</button>

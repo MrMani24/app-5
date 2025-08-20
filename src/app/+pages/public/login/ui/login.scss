@@ -1,14 +1,26 @@
-:host{
-  margin-top: 3em;  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
 @font-face {
     font-family: YekanBakh;
     src: url(/../../../../Font/YekanBakh.woff2);
 }
-h5{
-    font-family: YekanBakh;
+
+nav {
+    background-image: url('../../../../../../public/photo/imgFarm.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#d1 {
+    background-image: url('../../../../../../public/photo/imgFarm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+@media screen and (min-width: 768px) {
+    #d1 {
+        background-image: none
+    }
 }

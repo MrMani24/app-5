@@ -1,29 +1,52 @@
-
-
-<div id="a1" class="w-full max-w-sm p-4 border border-gray-900 rounded-lg shadow-sm sm:p-6 md:p-8">
-    <form class="space-y-6">
-        <h5 class="text-xl font-medium text-gray-900">ورود</h5>
-        <div>
-            <label for="username" class="block mb-2 text-sm font-medium text-gray-900">نام کاربری</label>
-            <input [(ngModel)]="login.username" type="" name="username" class=" border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2" placeholder="نام کاربری" required />
-            <span class="text-red-900" >{{this.massage0}}</span>
-        </div>
-        <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">کلمه عبور</label>
-            <input [(ngModel)]="login.password" type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2" required />
-            <span class="text-red-900" >{{this.massage1}}</span>
-        </div>
-        <!-- <div class="flex items-start">
-            <div class="flex items-start">
-                <div class="flex items-center h-5">
-                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-900 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
+<div id="d1" >
+    <a routerLink="/public" class="flex items-center space-x-3 rtl:space-x-reverse md:w-auto block md:hidden">
+        <img src="../../../../../photo/logo.png" class="h-21 w-21" alt="Flowbite Logo" />
+    </a>
+    <div class="md:h-screen md:m-0 mt-20 flex items-center justify-center">
+        <div class="flex md:flex-row flex-col-reverse w-full md:m-10 m-1 max-w-screen-xl">
+            <div id="a1" class="md:w-1/2 w-full md:p-10 p-2 md:bg-gray-100">
+                <form class="space-y-6 shadow-lg p-8 bg-white rounded-lg">
+                    <h5 class="text-xl font-medium text-gray-900">ورود</h5>
+                    <div>
+                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900">نام کاربری</label>
+                        <input [(ngModel)]="login.username" type="" name="username"
+                            class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2"
+                            placeholder="نام کاربری" required />
+                        <span class="text-red-900">{{this.massage0}}</span>
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">کلمه عبور</label>
+                        <input [(ngModel)]="login.password" type="password" name="password" id="password"
+                            placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2"
+                            required />
+                        <span class="text-red-900">{{this.massage1}}</span>
+                    </div>
+                    <!-- <div class="flex items-start">
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-900 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
+                    </div>
+                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900">من را به خاطر بسپار</label>
                 </div>
-                <label for="remember" class="ms-2 text-sm font-medium text-gray-900">من را به خاطر بسپار</label>
+            </div> -->
+                    <button (click)="isValid()" type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">ورود
+                        به حساب کاربری</button>
+                    <div class="text-sm font-medium text-gray-500">
+                        <a (click)="back()" class="text-blue-700 hover:underline">باز گشت</a>
+                    </div>
+                </form>
             </div>
-        </div> -->
-        <button (click)="isValid()" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">ورود به حساب کاربری</button>
-        <div class="text-sm font-medium text-gray-500">
-            <a (click)="back()" class="text-blue-700 hover:underline">باز گشت</a>
+            <nav id="a1" class="hidden md:block md:w-1/2">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-1">
+                    <a routerLink="/public" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="../../../../../photo/logo.png" class="h-26 w-26" alt="Flowbite Logo" />
+                        <!-- <span id="name" class="self-center text-xl font-semibold whitespace-nowrap lg:block hidden">اتحادیه
+                        استانی موادشیمیایی, بذر , کود و سم همدان </span> -->
+                    </a>
+                </div>
+            </nav>
         </div>
-    </form>
+    </div>
 </div>

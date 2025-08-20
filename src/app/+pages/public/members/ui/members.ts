@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { Member } from "./member/member";
+import { Component, inject, OnInit } from '@angular/core';
 import { Servic } from '../../sharde/servic';
+import { Member } from "./member/member";
 
 
 @Component({
@@ -9,6 +9,13 @@ import { Servic } from '../../sharde/servic';
   templateUrl: './members.html',
   styleUrl: './members.scss'
 })
-export class Members {
-  member = inject(Servic);
+export class Members implements OnInit {
+    ngOnInit(): void {
+    this.refresh()
+  }
+  Mlist = inject(Servic)
+  dataSource: any;
+  async refresh() {
+    this.dataSource = await this.Mlist.List();
+  }
 }

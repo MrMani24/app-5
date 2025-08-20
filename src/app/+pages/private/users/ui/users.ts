@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { person, Servic } from '../../../public/sharde/servic';
 import { EditorUsers } from "./editor-users/editor-users";
-import { AsyncPipe} from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 
 @Component({
@@ -10,22 +10,30 @@ import { AsyncPipe} from '@angular/common';
   templateUrl: './users.html',
   styleUrl: './users.scss'
 })
-export class Users {
+export class Users implements OnInit {
+  ngOnInit(): void {
+    this.refresh()
+  }
   member = inject(Servic);
   action = 'list';
   selected: person | undefined;
-  selsctedId = 0
+  selsctedId: string = ''
   isModel: boolean = false;
   isDelete: boolean = false
   removeUser: string = ''
-   ok(b: person) {
+  dataSource: any;
+  async refresh() {
+    this.dataSource = await this.member.List();
+  }
+  async ok(b: person) {
     if (this.action == 'create') {
-       this.member.add(b)
+      await this.member.add(b)
     }
     else if (this.action == 'edit') {
-       this.member.edit(b, this.selsctedId)
+      await this.member.edit(b, this.selsctedId)
     }
     this.action = 'list';
+    this.refresh()
   }
   create() {
     this.action = 'create'
@@ -54,18 +62,17 @@ export class Users {
   async remove(person: person) {
     this.isModel = true;
 
-    this.removeUser = person.FirstName + ' ' + person.LastName
+    this.removeUser = person.firstname + ' ' + person.lastname
 
     const confirmed = await this.waitForDeleteConfirm();
-    
-    
+
     if (!confirmed) {
       return;
     }
     this.selsctedId = person.id
-    this.member.delete(person, this.selsctedId);
-    this.isModel = false;
-    this.isDelete =false;
+    await this.member.delete(this.selsctedId);
+    this.refresh()
+    this.isDelete = false;
   }
 
   edit(person: person) {

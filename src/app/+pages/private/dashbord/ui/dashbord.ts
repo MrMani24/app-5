@@ -9,8 +9,15 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './dashbord.html',
   styleUrl: './dashbord.scss'
 })
-export class Dashbord {
+export class Dashbord implements OnInit {
+  ngOnInit(): void {
+    this.refresh()
+  }
+  dataSource: any;
+  async refresh() {
+    this.dataSource = await this.data.List();
+  }
   action = inject(DashbordServic);
   data = inject(Servic);
-  getObject = (index: number): person => this.data.List()[index];
+  getObject = (index: number): person => this.dataSource[index];
 }
